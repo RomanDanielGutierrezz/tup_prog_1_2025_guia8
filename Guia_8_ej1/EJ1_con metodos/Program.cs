@@ -29,7 +29,6 @@ namespace EJ1
 
             if (contador==1 || valor < minimo)
                 minimo = valor;
-          
         }
         static double CalcularPromedio()
         {
@@ -121,7 +120,6 @@ namespace EJ1
                     case 4:
                         {
                             MostrarPantallaCalcularYMostrarPromedio();
-                            break;
                         }
                         break;
                     case 5:
