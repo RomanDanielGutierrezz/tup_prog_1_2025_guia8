@@ -25,32 +25,33 @@ namespace EJ3
             {
                 MostrarPantallaSolicitarOpcionMenu();
                 int op = Convert.ToInt32(Console.ReadLine());
-                if (op > 0 && op < 3)
+
+                switch (op)
                 {
-                    switch (op)
-                    {
-                        case 1:
-                            {
-                                MostrarPantallaSolicitarAlumnos();
-                            }
-                            break;
-                        case 2:
-                            {
-                                Console.Clear();
-                                MostrarPantallaMostrarListaOrdenada();
-                                Console.ReadKey();
-                            }
-                            break;
-                        case 3:
-                            {
-                                sigue = true;
-                            }
-                            break;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Opcion no valida");
+                    case 1:
+                        {
+                            MostrarPantallaSolicitarAlumnos();
+                        }
+                        break;
+                    case 2:
+                        {
+                            Console.Clear();
+                            MostrarPantallaMostrarListaOrdenada();
+                            Console.ReadKey();
+                        }
+                        break;
+                    case 3:
+                        {
+                            sigue = true;
+                        }
+                        break;
+                    default:
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Opcion no valida, por favor intente nuevamente.");
+                            Console.ReadKey();
+                        }
+                        break;
                 }
             }
         }
@@ -108,15 +109,36 @@ namespace EJ3
         }
         static void MostrarPantallaMostrarListaOrdenada()
         {
-            if (numerolibreta0 < numerolibreta1)
+            if (numerolibreta0 > numerolibreta1)
             {
-                if (numerolibreta0 > numerolibreta2)
+                if (numerolibreta1 < numerolibreta2)
                 {
-                    Console.WriteLine($"{nombre1}: {numerolibreta1}");
                     Console.WriteLine($"{nombre0}: {numerolibreta0}");
+                    Console.WriteLine($"{nombre1}: {numerolibreta1}");
                     Console.WriteLine($"{nombre2}: {numerolibreta2}");
                 }
-                else if (numerolibreta1 < numerolibreta2)
+                else if (numerolibreta2 > numerolibreta0)
+                {
+                    Console.WriteLine($"{nombre2}: {numerolibreta2}");
+                    Console.WriteLine($"{nombre0}: {numerolibreta0}");
+                    Console.WriteLine($"{nombre1}: {numerolibreta1}");
+                }
+                else
+                {
+                    Console.WriteLine($"{nombre0}: {numerolibreta0}");
+                    Console.WriteLine($"{nombre2}: {numerolibreta2}");
+                    Console.WriteLine($"{nombre1}: {numerolibreta1}");
+                }
+            }
+            else
+            {
+                if (numerolibreta2 > numerolibreta0)
+                {
+                    Console.WriteLine($"{nombre2}: {numerolibreta2}");
+                    Console.WriteLine($"{nombre0}: {numerolibreta0}");
+                    Console.WriteLine($"{nombre1}: {numerolibreta1}");
+                }
+                else if (numerolibreta2 > numerolibreta1)
                 {
                     Console.WriteLine($"{nombre2}: {numerolibreta2}");
                     Console.WriteLine($"{nombre1}: {numerolibreta1}");
@@ -128,24 +150,6 @@ namespace EJ3
                     Console.WriteLine($"{nombre2}: {numerolibreta2}");
                     Console.WriteLine($"{nombre0}: {numerolibreta0}");
                 }
-            }
-            if (numerolibreta2 > numerolibreta1)
-            {
-                Console.WriteLine($"{nombre0}: {numerolibreta0}");
-                Console.WriteLine($"{nombre1}: {numerolibreta1}");
-                Console.WriteLine($"{nombre2}: {numerolibreta2}");
-            }
-            else if (numerolibreta0 < numerolibreta2)
-            {
-                Console.WriteLine($"{nombre0}: {numerolibreta0}");
-                Console.WriteLine($"{nombre2}: {numerolibreta2}");
-                Console.WriteLine($"{nombre1}: {numerolibreta1}");
-            }
-            else
-            {
-                Console.WriteLine($"{nombre2}: {numerolibreta2}");
-                Console.WriteLine($"{nombre0}: {numerolibreta0}");
-                Console.WriteLine($"{nombre1}: {numerolibreta1}");
             }
         }
         #endregion
